@@ -21,11 +21,12 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: echo "No tests yet"  # Replace with `npm test` if you have tests
+      run: echo "No tests yet"  # Replace with `npm test` if you add tests later
+
+    - name: Install Railway CLI
+      run: npm install -g @railway/cli
 
     - name: Deploy to Railway
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      run: |
-        npm install -g railway
-        railway up --service YOUR_SERVICE_NAME
+      run: railway up --service YOUR_SERVICE_NAME
